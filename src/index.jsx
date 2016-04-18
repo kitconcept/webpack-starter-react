@@ -7,9 +7,9 @@ class SearchApp extends React.Component {
     return (
       <div>
         <SearchBox />
-        <SearchResults />
+        <SearchResults results={this.props.results} />
       </div>
-    );
+    )
   }
 }
 SearchApp.propTypes = {
@@ -31,30 +31,37 @@ class SearchResults extends React.Component {
     return (
       <ul>
         {this.props.results.map(
-          (result) => <SearchResultItem key={result.id}
-                                        name={result.title} />
+          (item) => <SearchResultItem key={item.id}
+                                      id={item.id}
+                                      title={item.title} />
         )}
       </ul>
     )
   }
 }
 SearchResults.propTypes = {
+  results: PropTypes.arrayOf(PropTypes.object)
+}
+
+class SearchResultItem extends React.Component {
+  render() {
+    return (
+      <li>{this.props.id} - {this.props.title}</li>
+    )
+  }
+}
+SearchResultItem.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 }
 
 let results = [
-  { id: 1, title: 'Colorless green ideas sleep furiously'},
-  { id: 2, title: 'Furiously sleep ideas green colorless'}
+  { id: '1', title: 'Colorless green ideas sleep furiously'},
+  { id: '2', title: 'Furiously sleep ideas green colorless'}
 ]
 
-class SearchResultItem extends React.Component {
-  render() {
-    return (
-      <li>{this.prop.id} - {this.prop.title}</li>
-    )
-  }
-}
 
-
-ReactDOM.render(<SearchApp />, document.getElementById("container"))
+ReactDOM.render(
+  <SearchApp results={results} />,
+  document.getElementById("container")
+)
