@@ -1,10 +1,15 @@
-  $ npm init -y
-  $ npm install webpack --save-dev
+Setup::
 
+  $ npm install
 
-  $ npm install react --save
+Start Development Server::
 
+  $ npm start
 
-Sublime Text:
+Build::
+
+  $ npm build
+
+Sublime Text Plugins for React::
 
 -  babel-sublime (https://github.com/babel/babel-sublime)
