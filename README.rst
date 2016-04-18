@@ -3,3 +3,8 @@
 
 
   $ npm install react --save
+
+
+Sublime Text:
+
+-  babel-sublime (https://github.com/babel/babel-sublime)
