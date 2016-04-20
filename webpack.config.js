@@ -34,6 +34,7 @@ var config = {
   ],
   devServer: {
     contentBase: "./dist",
+    port: 3000,
     colors: true,
     historyApiFallback: true,
     inline: true
